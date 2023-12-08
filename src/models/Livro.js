@@ -6,9 +6,9 @@ const livroSchema = new mongoose.Schema({
   editora: { type: String },
   preco: { type: Number },
   paginas: { type: Number },
-  autor: {type: mongoose.Schema.Types.ObjectId, ref: 'autores', required: true},
+  autor: {type: mongoose.Schema.Types.ObjectId, ref: "autores", required: true},
 }, { versionKey: false });
 
-const livros= mongoose.model('livros', livroSchema);
+const livros= mongoose.model("livros", livroSchema);
 
 export default livros;
