@@ -72,7 +72,7 @@ class LivroController {
       const busca = {};
 
       if (editora) busca.editora = editora;
-      if (titulo) busca.titulo = titulo;
+      if (titulo) busca.titulo = { $regex: titulo, $options: "i"};
 
       const livrosEncontrados = await livros.find(busca);
 
