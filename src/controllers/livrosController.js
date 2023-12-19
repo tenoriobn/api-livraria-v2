@@ -17,7 +17,7 @@ class LivroController {
   static listarLivroPorId = async (req, res, next) => {
     try {
       const id = req.params.id;
-      const livroResultado = await livros.findById(id).populate("autor", "nome").exec();
+      const livroResultado = await livros.findById(id);
 
       if (livroResultado !== null) {
         res.status(200).send(livroResultado);
@@ -75,7 +75,6 @@ class LivroController {
       if (busca !== null) {
         const livrosEncontrados = livros
           .find(busca)
-          .populate("autor")
         ;
         
         req.resultado = livrosEncontrados;
