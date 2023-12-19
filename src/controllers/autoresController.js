@@ -5,10 +5,12 @@ class AutorController {
 
   static listarAutores = async (req, res, next) => {
     try{
-      const autoresResultado = await autores.find();
+      const autoresResultado = autores.find();
+
+      req.resultado = autoresResultado;
 
       if (autoresResultado != null) {
-        res.status(200).json(autoresResultado);
+        next();
       } else {
         next(new NaoEncontrado("Id do Autor não localizado."));
       }
